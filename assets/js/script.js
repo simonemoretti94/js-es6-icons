@@ -132,13 +132,24 @@ function iconMaker(index) {
     console.log('mainContainer.isConnected', mainContainer.isConnected);
 
     //Creating icon element
-    const iconElement = `
-    <div class="col-3 d-flex justify-content-center align-items-center">
+     const iconElement = `
+    <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-4 d-flex justify-content-center align-items-center">
         <i class="${index.prefix}solid ${index.prefix}${index.name}" style="color: ${index.color};"></i>
     </div>
     `;
 
-    console.log('icon element log: ', iconElement);
+	// const divElement = document.createElement('div');
+	
+	// divElement.classList.add('col-3', 'd-flex', 'justify-content-center', 'align-items-center');
+
+	// const iconElement = document.createElement('i');
+
+	 console.log(iconElement);
+	// const tempi = `  <i class="${index.prefix}solid ${index.prefix}${index.name}" style="color: ${index.color};"></i>`
+	// element.append(tempi);
+	// console.log(element);
+
+    // console.log('icon element log: ', iconElement);
 
     mainContainer.insertAdjacentHTML('beforeend', iconElement);
 
@@ -152,4 +163,10 @@ for (let index = 0; index < icons.length; index++) {
     iconMaker(icons[index]);
     
 }
+
+const select = document.getElementById('main_select');
+
+select.addEventListener('change', function() {
+	console.log('value: ', select.value);
+})
 
