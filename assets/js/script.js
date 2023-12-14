@@ -144,6 +144,7 @@ for (let index = 0; index < icons.length; index++) {
 
 const select = document.getElementById('main_select');
 
+
 select.addEventListener('change', function() {
 
 	//Getting select value
@@ -227,4 +228,5 @@ select.addEventListener('change', function() {
 		}
 	}
 })
+
 
