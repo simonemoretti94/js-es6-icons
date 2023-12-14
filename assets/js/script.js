@@ -133,27 +133,14 @@ function iconMaker(index) {
 
     //Creating icon element
      const iconElement = `
-    <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-4 d-flex justify-content-center align-items-center">
-        <i class="${index.prefix}solid ${index.prefix}${index.name}" style="color: ${index.color};"></i>
+    <div class="${index.type} col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-4 d-flex justify-content-center align-items-center">
+        <i class="${index.prefix}solid ${index.prefix}${index.name} rounded-3 display-2 w-50 h-auto" style="color: ${index.color};"></i>
     </div>
     `;
 
-	// const divElement = document.createElement('div');
-	
-	// divElement.classList.add('col-3', 'd-flex', 'justify-content-center', 'align-items-center');
-
-	// const iconElement = document.createElement('i');
-
 	 console.log(iconElement);
-	// const tempi = `  <i class="${index.prefix}solid ${index.prefix}${index.name}" style="color: ${index.color};"></i>`
-	// element.append(tempi);
-	// console.log(element);
-
-    // console.log('icon element log: ', iconElement);
 
     mainContainer.insertAdjacentHTML('beforeend', iconElement);
-
-
 
 }
 
@@ -167,6 +154,43 @@ for (let index = 0; index < icons.length; index++) {
 const select = document.getElementById('main_select');
 
 select.addEventListener('change', function() {
-	console.log('value: ', select.value);
+
+	//Getting select value
+	console.log('value: ', select.value, 'type of value: ', typeof(select.value));
+
+	//making it lowercase
+	const typeValue = select.value.toLowerCase();
+
+	console.log('value: ', typeValue);
+
+	//getting cards
+	// const user = document.querySelectorAll("[id='user']");
+	const user = document.querySelectorAll('.user');
+	const animal = document.querySelectorAll('.animal');
+	const vegetable = document.querySelectorAll('.vegetable');
+
+	console.log('animal: length: ', animal.length
+	, 'vegetable length: ', vegetable.length);
+
+	//deciding what to do with that value
+	if(typeValue === 'user') {
+
+		//declaring variable
+		let i, n;
+
+		//iterating and hiding
+		for (i = 0, n = 0; i < vegetable.length, n < animal.length; i++, n++) {
+			
+			/*console.log('user: ', user.classList, 'animal: ', animal.classList, 'vegetable: ', vegetable.classList);*/
+			
+			animal[n].classList.add('d-none');
+			vegetable[i].classList.add('d-none');
+
+			console.log('animal: ', animal[n].classList, 'vegetable: ', vegetable[i].classList);
+
+
+		}
+
+	}
 })
 
