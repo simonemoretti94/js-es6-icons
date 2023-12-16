@@ -118,7 +118,7 @@ const icons = [
 function iconMaker(index) {
 
     //getting container id
-    const mainContainer = document.getElementById('main_container');
+    
 
     // console.log('mainContainer.isConnected', mainContainer.isConnected);
 
@@ -134,6 +134,8 @@ function iconMaker(index) {
     mainContainer.insertAdjacentHTML('beforeend', iconElement);
 
 }
+
+const mainContainer = document.getElementById('main_container');
 
 for (let index = 0; index < icons.length; index++) {
     // console.log(`index ${index} object name identifier: ${icons[index].name}`,);
@@ -153,80 +155,18 @@ select.addEventListener('change', function() {
 	//making it lowercase
 	const typeValue = select.value.toLowerCase();
 
-	console.log('value: ', typeValue);
+	mainContainer.innerHTML = '';
+	
+	for (let index = 0; index < icons.length; index++) {
+		// console.log(`index ${index} object name identifier: ${icons[index].name}`,);
 
-	//getting cards
-	const user = document.querySelectorAll('div.user');
-	const animal = document.querySelectorAll('.animal');
-	const vegetable = document.querySelectorAll('.vegetable');
-
-
-	console.log('user: ', user, 'user.length', user.length, 'animal: ', animal, 'animal.length', animal.length, 'vegetable: ', vegetable, 'vegetable.length', vegetable.length);
-
-	//declaring variables
-	let i, n;
-
-	//deciding what to do with that value
-	if(typeValue === 'user') {
-
-		//iterating and adding d-none classes
-		for (i = 0; i < vegetable.length; i++) {
-			
-			vegetable[i].classList.add('d-none');
-			
-			console.log('vegetable: ', vegetable[i].classList);
+		if(typeValue === icons[index].type || typeValue === '') {
+			iconMaker(icons[index]);
 		}
 
-		for (n = 0; n < animal.length; n++) {
-			
-			animal[n].classList.add('d-none');
-			
-			console.log('animal: ', animal[n].classList);
-		}
 		
-
 	}
-	else if(typeValue === 'animal') {
-
-		//declaring variable
-		let i, n;
-
-		//iterating and adding d-none classes
-		for (i = 0; i < user.length; i++) {
-			
-			user[i].classList.add('d-none');
-			
-			console.log('user: ', user[i].classList);
-		}
-
-		for (n = 0; n < vegetable.length; n++) {
-			
-			vegetable[n].classList.add('d-none');
-			
-			console.log('vegetable: ', vegetable[n].classList);
-		}
-		
-
-	}
-	else{
-		//declaring variable
-		let i, n;
-
-		//iterating and adding d-none classes
-		for (i = 0; i < user.length; i++) {
-			
-			user[i].classList.add('d-none');
-			
-			console.log('user: ', user[i].classList);
-		}
-
-		for (n = 0; n < animal.length; n++) {
-			
-			animal[n].classList.add('d-none');
-			
-			console.log('animal: ', animal[n].classList);
-		}
-	}
+console.log('value: ', typeValue);
 })
 
 
