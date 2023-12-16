@@ -124,6 +124,7 @@ h1 {
 #site_main {
     min-height: 400px;
     box-shadow: 2px 1.5px rgb(187, 187, 187);
+    background-color: rgb(72, 72, 72);
 }
 
 #main_container div {
