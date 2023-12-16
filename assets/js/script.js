@@ -166,7 +166,6 @@ select.addEventListener('change', function() {
 
 		
 	}
-console.log('value: ', typeValue);
 })
 
 
